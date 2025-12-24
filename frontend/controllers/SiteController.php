@@ -97,6 +97,25 @@ class SiteController extends Controller
         ]);
     }
 
+    // SiteController.php
+    public function actionCheckToken($token)
+    {
+        // Check if session still exists
+        $exists = (new \yii\db\Query())
+            ->from('qr_session')
+            ->where(['token' => $token])
+            ->exists();
+
+        // If it does NOT exist, deletion is complete
+        return $this->asJson(['deleted' => !$exists]);
+    }
+
+
+    public function actionThanks()
+    {
+        return $this->render('thanks');
+    }
+
     public function actionCheckScan($token)
     {
         $scanned = (new \yii\db\Query())

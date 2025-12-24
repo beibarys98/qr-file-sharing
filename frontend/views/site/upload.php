@@ -22,3 +22,18 @@ $this->title = 'QR-drop';
     </form>
 
 </div>
+
+<script>
+    const token = '<?= $token ?>'; // pass token from server to view
+
+    const interval = setInterval(() => {
+        fetch('<?= \yii\helpers\Url::to(['site/check-token']) ?>?token=' + token)
+            .then(res => res.json())
+            .then(data => {
+                if (data.deleted) {
+                    clearInterval(interval);
+                    window.location.href = '<?= \yii\helpers\Url::to(['site/thanks']) ?>';
+                }
+            });
+    }, 2000); // check every 2 seconds
+</script>
