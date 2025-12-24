@@ -36,7 +36,7 @@ AppAsset::register($this);
     </main>
 
     <footer class="mt-auto py-3 bg-light">
-        <div class="container">
+        <div class="container text-center">
             <span class="text-muted">Made by Beibarys Akhi</span>
         </div>
     </footer>
