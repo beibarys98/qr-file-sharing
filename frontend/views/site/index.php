@@ -1,6 +1,6 @@
 <?php
 
-$this->title = 'QR-drop 2';
+$this->title = 'QR-drop';
 
 ?>
 
